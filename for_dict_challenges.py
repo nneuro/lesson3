@@ -15,8 +15,8 @@ students = [
 ]
 
 dicts = {}
-for i in students:
-    dicts.update({i.get('first_name'): students.count(i)})
+for student in students:
+    dicts.update({student.get('first_name'): students.count(student)})
 for key in dicts.keys():
     print(f'{key.title()}:  {dicts.get(key)}')
 
