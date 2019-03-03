@@ -1,5 +1,11 @@
 # Задание 1
 # Дан список учеников, нужно посчитать количество повторений каждого имени ученика.
+
+# Пример вывода:
+# Вася: 1
+# Маша: 2
+# Петя: 2
+
 students = [
   {'first_name': 'Вася'},
   {'first_name': 'Петя'},
@@ -7,26 +13,13 @@ students = [
   {'first_name': 'Маша'},
   {'first_name': 'Петя'},
 ]
-student_list = []
-for student in students:
-    student_name = student.get('first_name') 
-    student_list.append(student_name)
 
-student_count_list = []
-for student_name in student_list:
-    student_name_count = student_list.count(student_name)
-    student_count_list.append(student_name_count)
+dicts = {}
+for i in students:
+    dicts.update({i.get('first_name'): students.count(i)})
+for key in dicts.keys():
+    print(f'{key.title()}:  {dicts.get(key)}')
 
-student_dict = dict( zip(student_list, student_count_list)) #удаляет повторы имён из списка
-for key in student_dict.keys():
-    print(f'{key.title()}:  {student_dict.get(key)}')
-
-# {'Vasya': 1, 'Masha':2, ..}
-#сделать словарь с имя: количество таких имён
-# Пример вывода:
-# Вася: 1
-# Маша: 2
-# Петя: 2
 
 
 # Задание 2
@@ -98,3 +91,28 @@ for key in student_dict.keys():
 
 # Пример вывода:
 # Больше всего мальчиков в классе 3c
+
+
+
+
+# train for task1
+# students = [
+#   {'first_name': 'Вася'},
+#   {'first_name': 'Петя'},
+#   {'first_name': 'Маша'},
+#   {'first_name': 'Маша'},
+#   {'first_name': 'Петя'},
+# ]
+# student_list = []
+# for student in students:
+#     student_name = student.get('first_name') 
+#     student_list.append(student_name)
+
+# student_count_list = []
+# for student_name in student_list:
+#     student_name_count = student_list.count(student_name)
+#     student_count_list.append(student_name_count)
+
+# student_dict = dict( zip(student_list, student_count_list)) #удаляет повторы имён из списка
+# for key in student_dict.keys():
+#     print(f'{key.title()}:  {student_dict.get(key)}')
