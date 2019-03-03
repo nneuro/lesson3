@@ -1,0 +1,2 @@
+a = dict.fromkeys(['s', 'b', 'c'], [1, 2, 3])
+print(a)
