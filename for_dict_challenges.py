@@ -17,8 +17,8 @@ students = [
 dicts = {}
 for student in students:
     dicts.update({student.get('first_name'): students.count(student)})
-for key in dicts.keys():
-    print(f'{key.title()}:  {dicts.get(key)}')
+for key, value in dicts.items():
+    print(f'{key}:  {value}')
 
 
 
@@ -28,18 +28,22 @@ for key in dicts.keys():
 # Самое частое имя среди учеников: Маша
 
 students = [
-  {'first_name': 'Вася'},
-  {'first_name': 'Петя'},
-  {'first_name': 'Маша'},
-  {'first_name': 'Маша'},
-  {'first_name': 'Оля'},
+{'first_name': 'Вася', 'age':7},
+  {'first_name': 'Петя', 'age':7},
+  {'first_name': 'Маша', 'age':9},
+  {'first_name': 'Маша', 'age':7},
+  {'first_name': 'Оля', 'age':5}
 ]
-dicts = {}
+
+name_list = []
 for student in students:
-    dicts.update({students.count(student): student.get('first_name')})
-for key in dicts.keys():
-    if key == max(dicts.keys()):
-        print(f'Самое частое имя среди учеников: {dicts.get(max(dicts.keys()))}')
+    name_list.append(student['first_name'])
+name_count = {}
+for name in name_list:
+    name_count.update({name:name_list.count(name)})
+for key, value in name_count.items():
+    if value == max(name_count.values()):
+        print(f'Самое частое имя среди учеников: {key}')
   
 
 
