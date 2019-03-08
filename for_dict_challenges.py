@@ -14,10 +14,38 @@ students = [
   {'first_name': 'Петя'},
 ]
 
+# Способ номер 1
 dicts = {}
 for student in students:
     dicts.update({student.get('first_name'): students.count(student)})
 for key, value in dicts.items():
+    print(f'{key}:  {value}')
+
+# Способ номер 2
+dicts = {}
+for student in students:
+    name = student['first_name']
+    if name in dicts:
+        dicts[name] = dicts[name] + 1
+    else:
+        dicts[name] = 1
+for key, value in dicts.items():
+    print(f'{key}:  {value}')    
+
+# Способ номер 3
+from collections import Counter  
+students = [
+{'first_name': 'Вася', 'age':7},
+  {'first_name': 'Петя', 'age':7},
+  {'first_name': 'Маша', 'age':9},
+  {'first_name': 'Маша', 'age':7},
+  {'first_name': 'Оля', 'age':5}
+]
+
+name_list = []
+for student in students:
+    name_list.append(student['first_name'])
+for key, value in Counter(name_list).items():
     print(f'{key}:  {value}')
 
 
@@ -35,6 +63,19 @@ students = [
   {'first_name': 'Оля', 'age':5}
 ]
 
+# Способ 1
+dicts = {}
+for student in students:
+    name = student['first_name']
+    if name in dicts:
+        dicts[name] = dicts[name] + 1
+    else:
+        dicts[name] = 1
+for name in dicts:
+    if dicts[name] == max(dicts.values()):
+        print(f'Самое частое имя среди учеников: {name}')
+
+# Способ 2
 name_list = []
 for student in students:
     name_list.append(student['first_name'])
